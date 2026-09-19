@@ -9,7 +9,7 @@ export class HomePage extends BasePage {
   private readonly genderSelectorField: Locator;
   private readonly employeeStatusRadioButton: Locator;
   private readonly submitButton: Locator;
-  private readonly sucessMassage:Locator;
+  private readonly successMessage:Locator;
   private readonly shoplinkLocator;
 
 
@@ -23,7 +23,7 @@ export class HomePage extends BasePage {
     this.employeeStatusRadioButton = page.getByRole('radio', { name: statusSelector });
     this.submitButton = page.getByRole('button', { name: 'submit' });
     this.shoplinkLocator = page.getByRole("link", { name: "Shop" });
-    this.sucessMassage=page.getByText('Success!');
+    this.successMessage=page.getByText('Success!');
 
 
 
@@ -42,7 +42,7 @@ export class HomePage extends BasePage {
   async clickOnCheckBox(): Promise<void> {
     await this.checkBoxInputField.click();
   }
-  async SelectGender(gender: string): Promise<void> {
+  async selectGender(gender: string): Promise<void> {
     await this.genderSelectorField.selectOption(gender);
   }
   async selectStatus(): Promise<void> {
@@ -54,7 +54,7 @@ export class HomePage extends BasePage {
   async clickOnShopLink(): Promise<void> {
     await this.shoplinkLocator.click();
   }
-  async checkSuccessMassege():Promise<void>{
-    await expect(this.sucessMassage).toBeVisible();
+  async checkSuccessMessage():Promise<void>{
+    await expect(this.successMessage).toBeVisible();
   }
 }

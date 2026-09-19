@@ -10,15 +10,15 @@ export class HomePageSteps {
         this.homePage = new HomePage(page, "Student");
 
     }
-    async openPage() {
+    async openPage():Promise <void> {
         await this.homePage.openPage();
     }
-    async enterStudentData(username: string, password: string, email: string, gender: string) {
+    async enterStudentData(username: string, password: string, email: string, gender: string):Promise <void> {
         await this.homePage.enterName(username);
         await this.homePage.enterEmail(email);
         await this.homePage.enterPassword(password);
         await this.homePage.clickOnCheckBox();
-        await this.homePage.SelectGender(gender);
+        await this.homePage.selectGender(gender);
         await this.homePage.selectStatus();
         await this.homePage.clickOnSubmit();
 
@@ -28,7 +28,7 @@ export class HomePageSteps {
         await this.homePage.clickOnShopLink();
     }
     async checkDataSubmitted():Promise <void>{
-        await this.homePage.checkSuccessMassege();
+        await this.homePage.checkSuccessMessage();
 
     
     }
