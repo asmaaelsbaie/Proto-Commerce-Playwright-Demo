@@ -8,7 +8,7 @@ export class ShopPageSteps {
         this.shopPage = new ShopPage(page);
 
     }
-    async AddItems(item1: string, item2: string): Promise<void> {
+    async addItems(item1: string, item2: string): Promise<void> {
         await this.shopPage.addYourItems(item1);
         await this.shopPage.addYourItems(item2);
     }

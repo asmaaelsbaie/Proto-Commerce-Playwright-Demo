@@ -1,10 +1,10 @@
-import { expect, Page } from "@playwright/test";
+import { expect, Page,Locator } from "@playwright/test";
 import { BasePage } from "./BasePage";
 export class ShopPage extends BasePage {
 
 
-    private readonly appCardLocator;
-    private readonly cartItemsLocator;
+    private readonly appCardLocator:Locator;
+    private readonly cartItemsLocator:Locator;
     constructor(page: Page) {
         super(page);
 
@@ -16,7 +16,7 @@ export class ShopPage extends BasePage {
         await this.appCardLocator.filter({ hasText: itemName }).getByRole("button", { name: "Add" }).click();
     }
     async checkCartHave2Items():Promise <void>{
-        await expect(this.cartItemsLocator).toContainText(/Checkout/i);
+        await expect(this.cartItemsLocator).toContainText("2");
     }
 
 }
